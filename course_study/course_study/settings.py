@@ -41,13 +41,26 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'djoser',
+    
+    
 ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
-    'http://localhost:8080',
-    'http://192.168.0.101:8081'
 ]
+
+
+REST_FRAMEWORK = {
+
+   'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+
+    ),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
